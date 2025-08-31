@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+<style>
+
+    body{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    h2{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input{
+        width: 500px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 3px 2px;
+        align-items: center;
+        justify-content: center;
+
+    }
+    #button{
+        width: 100px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 3px 2px;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+</head>
+<body>
+  <h2>To-Do List</h2>
+  <input type="text" id="Inputtask" placeholder="Enter your task">
+  <button id="button" onclick="addTask()">Add Task</button>
+
+  <ul id="taskList"></ul>
+
+  <script defer>
+    function addTask() {
+      let taskInput = document.getElementById("Inputtask");
+      let taskText = Inputtask.value.trim();
+
+      if (taskText === "") return; // check if the user Entered an empty string
+
+      let li = document.createElement("li");
+      li.textContent = taskText;
+
+      let deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.onclick = function() {
+        li.remove();
+      };
+
+      li.appendChild(deleteButton);
+      document.getElementById("taskList").appendChild(li);
+      taskInput.value = "";// change the user input back to default
+    }
+  </script>
+</body>
+</html>

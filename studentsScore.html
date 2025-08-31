@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Scores</title>
+  <style>
+    .high-score {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Student Scores</h2>
+  <table border="1">
+    <thead>
+      <tr><th>Name</th><th>Score</th></tr>
+    </thead>
+    <tbody id="scoreTable"></tbody>
+  </table>
+
+  <script defer>
+    let students = [
+      {name: "Ama", score: 85},
+      {name: "Kwame", score: 92},
+      {name: "Efua", score: 76}
+    ];
+
+    let tableBody = document.getElementById("scoreTable");
+
+    students.forEach(function(student) {
+      let row = document.createElement("tr");
+
+      let nameCell = document.createElement("td");
+      nameCell.textContent = student.name;
+
+      let scoreCell = document.createElement("td");
+      scoreCell.textContent = student.score;
+
+      if (student.score > 80) {
+        scoreCell.style.backgroundColor = "yellow";
+      }
+
+      row.appendChild(nameCell);
+      row.appendChild(scoreCell);
+      tableBody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
